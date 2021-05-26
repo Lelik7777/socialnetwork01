@@ -5,6 +5,6 @@ import {DialogType} from '../Redux/state';
 
 export const Dialog: React.FC<DialogType> = ({id, name}) => {
     return <div>
-        <NavLink to={`/dialog/${id}`}>{name}</NavLink>
+        <NavLink to={`/dialogs/${id}`}>{name}</NavLink>
     </div>
 }

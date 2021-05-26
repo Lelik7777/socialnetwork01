@@ -56,6 +56,7 @@ export function addPost(){
     state.profilePage.posts.unshift(newPost);
     state.profilePage.newPostText='';
     rerender(state);
+
 }
 export function onChange(s:string){
     debugger

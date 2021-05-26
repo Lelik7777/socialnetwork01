@@ -2,7 +2,7 @@ import React from 'react';
 import s from './App.module.css';
 import {Header} from './Components/Header';
 import {Sidebar} from './Components/Sidebar';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import {Profile} from './Components/Profile/Profile';
 import {Dialogs} from './Components/Dialogs/Dialogs';
 import {News} from './Components/News';
@@ -17,6 +17,7 @@ type AppType = {
 }
 
 function App(props: AppType) {
+    console.log(props.state)
     const renderProfile = () => <Profile
         datePosts={props.state.profilePage.posts}
         newPost={props.state.profilePage.newPostText}
@@ -28,9 +29,11 @@ function App(props: AppType) {
         <Header title={'header'}/>
         <Sidebar title={sidebarItems}/>
         <div className={s.wrapper}>
-            <Route path={`/profile`} render={renderProfile}/>
-            <Route path={`/dialogs`} render={renderDialogs}/>
-            <Route path={`/news`} render={() => <News/>}/>
+            <Switch>
+                <Route path={`/profile`} render={renderProfile}/>
+                <Route path={`/dialogs`} render={renderDialogs}/>
+                <Route path={`/news`} render={() => <News/>}/>
+            </Switch>
         </div>
     </div>
 }
