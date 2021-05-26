@@ -1,8 +1,10 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
+import {DialogType} from '../Redux/state';
 
-type DialogType = {}
-export const Dialog: React.FC<DialogType> = ({}) => {
+
+export const Dialog: React.FC<DialogType> = ({id, name}) => {
     return <div>
-        dialog
+        <NavLink to={`/dialog/${id}`}>{name}</NavLink>
     </div>
 }
